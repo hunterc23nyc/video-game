@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="InvItem" format=3 uid="uid://dra72ffhww5j6"]
+
+[ext_resource type="Script" uid="uid://cid3jy2cqn2ts" path="res://inventory/inv script/inventory_item.gd" id="1_yukmt"]
+[ext_resource type="Texture2D" uid="uid://biu8a0o1ca2vx" path="res://icon.svg" id="2_tkatf"]
+
+[resource]
+script = ExtResource("1_yukmt")
+name = "tiles"
+texture = ExtResource("2_tkatf")
+size = Vector2(1, 1)
+metadata/_custom_type_script = "uid://cid3jy2cqn2ts"
