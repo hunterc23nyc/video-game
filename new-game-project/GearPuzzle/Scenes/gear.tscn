@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://ds8ae6b166kri"]
+
+[ext_resource type="Script" uid="uid://coxybnqkmob2e" path="res://GearPuzzle/Scripts/gear.gd" id="1_jlten"]
+[ext_resource type="Texture2D" uid="uid://idehon15yxvs" path="res://GearPuzzle/Sprites/SmallCog/clockwise.png" id="2_03yw3"]
+[ext_resource type="Texture2D" uid="uid://gd41nje8w4i5" path="res://GearPuzzle/Sprites/SmallCog/counterclockwise.png" id="3_1u60q"]
+[ext_resource type="Texture2D" uid="uid://wiitrm418gub" path="res://GearPuzzle/Sprites/SmallCog/idle.png" id="4_sj5jd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5k1p8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_03yw3")
+}],
+"loop": 1,
+"name": &"clockwise",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_1u60q")
+}],
+"loop": 1,
+"name": &"counterclockwise",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_sj5jd")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Gear" type="Area2D" unique_id=1024390581]
+script = ExtResource("1_jlten")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1905310093]
+scale = Vector2(1.25, 1.528)
+polygon = PackedVector2Array(0, -25.454542, -31.111109, 0, 0, 25.454542, 31.111109, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1822759610]
+sprite_frames = SubResource("SpriteFrames_5k1p8")
+animation = &"clockwise"
+
+[node name="SelectionRect" type="ColorRect" parent="." unique_id=106729742]
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 8.0
+offset_bottom = 8.0
+scale = Vector2(1.6, 1.6)
+color = Color(0.010169194, 0.010169194, 0.010169194, 0.27450982)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="ready" from="." to="." method="_on_ready"]
